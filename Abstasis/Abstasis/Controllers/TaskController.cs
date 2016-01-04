@@ -13,5 +13,13 @@ namespace Abstasis.Controllers
             return View();
         }
 
+        public static readonly List<string> Tasks = new List<string>();
+
+        public ActionResult Add(string task)
+        {
+            Tasks.Add(task);
+            return RedirectToAction("Index");
+        }
+
     }
 }
