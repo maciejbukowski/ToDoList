@@ -1,12 +1,31 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model List<string>
+
+@{
+    ViewBag.Title = "Get stuff done!";
 }
 
 <div class="jumbotron">
     <h3>What needs doing today?</h3>
-    <form>
+    <form action="@Url.Action("Add")" method="POST">
         <input type="text" class="input-lg col-xs-12" name="task" />
-    </form>
-    
+    </form> 
 </div>
+
+<h3>@Model.Count() Tasks</h3>
+<table class="table">
+    <tr>
+        <th>Description</th>
+    </tr>
+    <tbody>
+        @foreach (var task in Model)
+        {
+            <tr>
+                <td>
+                    @task
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
 
